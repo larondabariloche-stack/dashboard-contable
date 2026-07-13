@@ -13,18 +13,15 @@ body { font-family:system-ui,-apple-system,sans-serif; background:#0f0f0f; color
 .header span { font-size:13px; color:#888; }
 .badge { display:inline-block; font-size:11px; padding:3px 8px; border-radius:10px; }
 .badge-amber { background:#78350f; color:#fbbf24; }
+.badge-green { background:#166534; color:#4ade80; }
+.badge-blue { background:#1e3a5f; color:#60a5fa; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:20px; }
 .card { background:#1a1a1a; border-radius:14px; padding:18px; border:1px solid #2a2a2a; }
 .card h2 { font-size:14px; font-weight:600; color:#9ca3af; text-transform:uppercase; letter-spacing:.5px; margin-bottom:10px; }
 .num { font-size:36px; font-weight:800; line-height:1.1; }
-.num small { font-size:13px; font-weight:400; color:#666; }
 .green { color:#4ade80; }
 .red { color:#f87171; }
 .amber { color:#fbbf24; }
-.bar-row { display:flex; gap:6px; align-items:center; margin:3px 0; }
-.bar-label { width:90px; font-size:12px; color:#ccc; text-align:right; flex-shrink:0; }
-.bar { flex:1; height:18px; border-radius:5px; background:#2a2a2a; }
-.bar-fill { height:100%; border-radius:5px; display:flex; align-items:center; justify-content:flex-end; padding-right:5px; font-size:10px; font-weight:600; color:#fff; min-width:28px; }
 table.w { width:100%; border-collapse:collapse; font-size:13px; }
 table.w th { text-align:left; color:#888; font-weight:600; font-size:10px; text-transform:uppercase; padding:5px 3px; border-bottom:1px solid #333; }
 table.w td { padding:5px 3px; border-bottom:1px solid #222; }
@@ -32,14 +29,29 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 .awarn { background:#f59e0b11; border-left:3px solid #f59e0b; color:#fbbf24; }
 .adanger { background:#ef444411; border-left:3px solid #ef4444; color:#f87171; }
 .aok { background:#4ade8011; border-left:3px solid #4ade80; color:#4ade80; }
-.ainfo { background:#3b82f611; border-left:3px solid #3b82f6; color:#60a5fa; }
+.form-row { display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.form-row input, .form-row select { flex:1; min-width:120px; padding:8px 10px; border-radius:8px; border:1px solid #333; background:#222; color:#fff; font-size:14px; }
+.form-row input::placeholder { color:#666; }
+.form-row select option { background:#222; }
+.btn { padding:8px 16px; border-radius:8px; border:none; font-size:14px; font-weight:600; cursor:pointer; }
+.btn-primary { background:#f59e0b; color:#000; }
+.btn-primary:hover { background:#d97706; }
+.btn-primary:disabled { opacity:0.5; cursor:not-allowed; }
+.toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px 20px; border-radius:10px; font-size:14px; font-weight:600; z-index:999; display:none; }
+.toast-ok { background:#166534; color:#4ade80; }
+.toast-err { background:#7f1d1d; color:#f87171; }
+.tab-bar { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.tab { padding:8px 14px; border-radius:8px; background:#222; color:#888; border:1px solid #333; cursor:pointer; font-size:13px; font-weight:600; }
+.tab.active { background:#f59e0b22; color:#f59e0b; border-color:#f59e0b; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
 .footer { text-align:center; margin-top:20px; font-size:12px; color:#555; border-top:1px solid #222; padding-top:14px; }
 </style>
 </head>
 <body>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>13/07/2026 15:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>13/07/2026 18:41</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -47,27 +59,16 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="card"><h2>Gastos Julio</h2><div class="num red">$15.000</div></div>
 <div class="card"><h2>Balance Julio</h2><div class="num green">$335.000</div></div>
 </div>
-<div class="grid">
-<div class="card"><h2>Ultimas entregas</h2><table class="w"><tr><th>Fecha</th><th>Cod</th><th>Socio</th><th style="text-align:right;">$</th></tr>
-<tr><td style="color:#888;">16/07</td><td>red stems</td><td>nicole dalce</td><td style="text-align:right;color:#4ade80;">$170.000</td></tr>
-<tr><td style="color:#888;">02/07</td><td>invernadero</td><td>Santi Cached</td><td style="text-align:right;color:#4ade80;">$180.000</td></tr>
-<tr><td style="color:#888;">27/06</td><td>inverno promo mundial</td><td>Brenda Maman</td><td style="text-align:right;color:#4ade80;">$110.000</td></tr>
-<tr><td style="color:#888;">26/06</td><td>promo mundial</td><td>pablo galvan</td><td style="text-align:right;color:#4ade80;">$110.000</td></tr>
-<tr><td style="color:#888;">26/06</td><td>promo mundial</td><td>nadia</td><td style="text-align:right;color:#4ade80;">$110.000</td></tr>
-<tr><td style="color:#888;">26/06</td><td>promo mundial</td><td>nelson cebal</td><td style="text-align:right;color:#4ade80;">$110.000</td></tr>
-</table></div>
-<div class="card"><h2>Gastos recientes</h2><table class="w"><tr><th>Fecha</th><th>Detalle</th><th style="text-align:right;">$</th></tr>
-<tr><td style="color:#888;">02/12</td><td>PUBLI IG</td><td style="text-align:right;color:#f87171;">$44.000</td></tr>
-<tr><td style="color:#888;">02/12</td><td>limpieza</td><td style="text-align:right;color:#f87171;">$33.000</td></tr>
-<tr><td style="color:#888;">02/11</td><td>flores andres 62g</td><td style="text-align:right;color:#f87171;">$248.000</td></tr>
-<tr><td style="color:#888;">02/09</td><td>2 x medicos</td><td style="text-align:right;color:#f87171;">$96.000</td></tr>
-<tr><td style="color:#888;">02/09</td><td>6 frascos 3000cc</td><td style="text-align:right;color:#f87171;">$45.000</td></tr>
-<tr><td style="color:#888;">02/09</td><td>envio roca</td><td style="text-align:right;color:#f87171;">$16.000</td></tr>
-</table></div>
-<div class="card"><h2>Gastos por categoria</h2>
-<div class="bar-row"><div class="bar-label">Sin tipo</div><div class="bar"><div class="bar-fill" style="width:100%;background:#f59e0b">$15.000</div></div></div>
+<div class="tab-bar">
+<div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
+<div class="tab" onclick="switchTab('entrega')">➕ Cargar Entrega</div>
+<div class="tab" onclick="switchTab('gasto')">➕ Cargar Gasto</div>
 </div>
-<div class="card"><h2>Stock actual</h2>
+<div id="tab-ver" class="tab-content active">
+<div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
+<div class="alert awarn">🟡 3 productos con stock bajo (< 10)</div>
+</div>
+<div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
 <table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
 <tr><td>VPO</td><td>Cartucho THC</td><td style="text-align:right;color:#f87171;font-weight:600;">3</td></tr>
 <tr><td>CRM</td><td>crema cannabis jar</td><td style="text-align:right;color:#f87171;font-weight:600;">4</td></tr>
@@ -79,24 +80,341 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>HNV</td><td>hindu kush</td><td style="text-align:right;color:#4ade80;font-weight:600;">160</td></tr>
 <tr><td>HNK</td><td>hindu kush</td><td style="text-align:right;color:#f87171;font-weight:600;">-36</td></tr>
 </table>
-</div></div>
-<div class="grid">
-<div class="card"><h2>Alertas</h2>
-<div class="alert awarn">3 productos con stock bajo (< 10)</div>
 </div>
-<div class="card"><h2>Saldos pendientes</h2><table class="w">
-<tr><th>Socio</th><th style="text-align:right;">Monto</th><th>A quien</th></tr>
-<tr><td>Luciano fred</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$220.000</td><td style="color:#888;">juan</td></tr>
-<tr><td>vir del</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$74.000</td><td style="color:#888;">saldado ev</td></tr>
-<tr><td>fede moto</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$50.000</td><td style="color:#888;"></td></tr>
-<tr><td>Lucas</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$35.000</td><td style="color:#888;"></td></tr>
-<tr><td>SAyo</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$25.000</td><td style="color:#888;"></td></tr>
-<tr><td>david</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$0</td><td style="color:#888;"></td></tr>
-<tr><td>lau franze</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$120.000</td><td style="color:#888;">pagado tra</td></tr>
-<tr><td>vir fdek</td><td style="text-align:right;color:#fbbf24;font-weight:600;">$48.000</td><td style="color:#888;">saldado 15</td></tr>
-</table></div></div>
+</div>
+<div id="tab-entrega" class="tab-content">
+<div class="card">
+<h2>Nueva entrega</h2>
+<div id="form-entrega">
+<div class="form-row">
+<select id="e-codigo"><option value="">Codigo...</option>
+<option value="AND">AND</option>
+<option value="CPO">CPO</option>
+<option value="CRM">CRM</option>
+<option value="GRL">GRL</option>
+<option value="HNK">HNK</option>
+<option value="HNV">HNV</option>
+<option value="TAN">TAN</option>
+<option value="TRO">TRO</option>
+<option value="VPO">VPO</option>
+</select>
+<input type="text" id="e-cantidad" placeholder="Cantidad" inputmode="numeric">
+<input type="text" id="e-precio" placeholder="Precio total $ (ej: 45000)" inputmode="numeric">
+</div>
+<div class="form-row">
+<input type="text" id="e-socio" placeholder="Socio" list="socios-list">
+<datalist id="socios-list">
+<option value="Ale papa ivan">
+<option value="Andy">
+<option value="Bautista">
+<option value="Brenda Mamani">
+<option value="DAvid">
+<option value="David">
+<option value="Eladio">
+<option value="Enzo">
+<option value="FEde boga">
+<option value="Fausto">
+<option value="Fede boga">
+<option value="Flor grasi">
+<option value="Florencia socia">
+<option value="Gonzalo Paris">
+<option value="Horacio Suárez">
+<option value="Igancio Basti">
+<option value="Ignacio basti">
+<option value="Isaac">
+<option value="Javi">
+<option value="Juan Ignacio Ortiz">
+<option value="Juan Manuel Kokollo">
+<option value="Juan Pérez">
+<option value="Juan medialunas">
+<option value="Lau">
+<option value="Lau Franze">
+<option value="Lucas pago 20000">
+<option value="Lucho fred">
+<option value="Luciano fred">
+<option value="Maria Florencia Evangelista">
+<option value="Marino ponce">
+<option value="Mau superpizza">
+<option value="Mau superpuzza">
+<option value="Mauri">
+<option value="Mauri super pizza">
+<option value="Nico Medialunas">
+<option value="Nico Noceti">
+<option value="Nico noceti">
+<option value="Nicolas liñan">
+<option value="Nicole">
+<option value="Pablo Telias">
+<option value="Pablo galban">
+<option value="Pablo telias">
+<option value="Pale">
+<option value="Parma abogado">
+<option value="Patricia aguirre">
+<option value="Pri">
+<option value="Rebe">
+<option value="SAyo">
+<option value="Santi Cacheda">
+<option value="agnes">
+<option value="agustin">
+<option value="ale">
+<option value="ale solari">
+<option value="alejandro solari">
+<option value="amigo juan bajas">
+<option value="andrea amiga de enzo">
+<option value="andy sakal">
+<option value="ariel">
+<option value="ariel socio villa">
+<option value="brenda">
+<option value="brenda mamani">
+<option value="cannpat">
+<option value="canpat">
+<option value="caro san martin">
+<option value="cecilia">
+<option value="coco">
+<option value="coco colombo">
+<option value="coco cooombo">
+<option value="coco tulino">
+<option value="cristian conesa">
+<option value="cristian conessa">
+<option value="david">
+<option value="david compa anita">
+<option value="el chalten">
+<option value="eladio almonacid">
+<option value="enzo">
+<option value="esteban">
+<option value="esteban amigo vir">
+<option value="fabian">
+<option value="fabian zurich">
+<option value="fabio bareiro">
+<option value="facundo marchetti">
+<option value="facundo pla señorans">
+<option value="fede">
+<option value="federico">
+<option value="federico berkonsky">
+<option value="federico berkosky">
+<option value="fer tarnagol">
+<option value="flor grasi">
+<option value="flor grassi">
+<option value="flor paciente maqui">
+<option value="florencia">
+<option value="florencia Socia">
+<option value="florencia evangelista">
+<option value="florencia socia">
+<option value="frances Gerzovich">
+<option value="francesca gersovich">
+<option value="francesca gerzovicj">
+<option value="francisco angeletti">
+<option value="hernan">
+<option value="hernancito">
+<option value="horacio">
+<option value="horacio suarez">
+<option value="hostel">
+<option value="ignacio">
+<option value="ignacio basti">
+<option value="isaac cannpat">
+<option value="javo delfino">
+<option value="jona">
+<option value="jona plomero">
+<option value="juan Pablo kuhn">
+<option value="juan et">
+<option value="juan gabriel bs as">
+<option value="juan ignacio ortiz">
+<option value="juan jose requena">
+<option value="juan medialunas">
+<option value="juan ortiz">
+<option value="juan papi">
+<option value="lau">
+<option value="lau franze">
+<option value="lau frqnze">
+<option value="lau rossi">
+<option value="laura rossi">
+<option value="laura vieytes">
+<option value="lean">
+<option value="leandro anima">
+<option value="leandro jorge">
+<option value="lucia">
+<option value="marcelo albornoz">
+<option value="marian curiel">
+<option value="marino">
+<option value="mau">
+<option value="mauri super">
+<option value="melanie moreira">
+<option value="nadia">
+<option value="nelson ceballos">
+<option value="nico noceti">
+<option value="nico nocetti">
+<option value="nico rosetti">
+<option value="nicolas">
+<option value="nicolas liñan">
+<option value="nicole">
+<option value="nicole dalcecio">
+<option value="nicole dalceggio">
+<option value="nicole daleccio">
+<option value="nicole dalecio">
+<option value="nicole delacio">
+<option value="nicole delcecio">
+<option value="nivole delacio">
+<option value="pablo benavidez">
+<option value="pablo galvan">
+<option value="pablo telias">
+<option value="pablo tellias">
+<option value="pago">
+<option value="panlo telias">
+<option value="papi amigo juan">
+<option value="pato ex novio de vir">
+<option value="patrcia">
+<option value="patricia">
+<option value="patricio">
+<option value="pricila bohmer">
+<option value="rebe artista">
+<option value="rocio">
+<option value="rocio osorio">
+<option value="rocio ossorio">
+<option value="santi">
+<option value="santiago primo maky">
+<option value="sayem">
+<option value="sebastian">
+<option value="sebastian curamil">
+<option value="sebastian curanil">
+<option value="silestre">
+<option value="silvana diaz">
+<option value="silvestre">
+<option value="tomas gonzalez">
+<option value="tomy gilbert">
+<option value="vicky bs as">
+<option value="vir">
+<option value="yair">
+<option value="yamil peralta">
+</datalist>
+<select id="e-cobro"><option value="">Cobro</option><option value="juan">Juan</option><option value="efectivo">Efectivo</option><option value="pendiente">Pendiente</option></select>
+<input type="text" id="e-sede" placeholder="Sede" value="Bariloche">
+</div>
+<button class="btn btn-primary" onclick="cargarEntrega()">Guardar entrega</button>
+</div>
+<p id="e-resultado" style="margin-top:8px;font-size:13px;color:#888;"></p>
+</div>
+</div>
+<div id="tab-gasto" class="tab-content">
+<div class="card">
+<h2>Nuevo gasto</h2>
+<div id="form-gasto">
+<div class="form-row">
+<input type="text" id="g-descripcion" placeholder="Descripcion" style="flex:2;">
+<input type="text" id="g-monto" placeholder="Monto $" inputmode="numeric">
+</div>
+<div class="form-row">
+<select id="g-tipo"><option value="variable">Variable</option><option value="fijo">Fijo</option></select>
+<select id="g-quien"><option value="juan caja">Juan</option><option value="achu caja">Achu</option><option value="caja">Caja</option></select>
+</div>
+<button class="btn btn-primary" onclick="cargarGasto()">Guardar gasto</button>
+</div>
+<p id="g-resultado" style="margin-top:8px;font-size:13px;color:#888;"></p>
+</div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+
+function getApiUrl() {
+  // Intenta con la IP local primero (cuando esta en casa)
+  // Despues se puede cambiar por la URL del tunnel
+  return "http://192.168.1.137:8081";
+}
+
+function mostrarToast(msg, tipo) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast " + (tipo === "ok" ? "toast-ok" : "toast-err");
+  t.style.display = "block";
+  setTimeout(function(){ t.style.display = "none"; }, 4000);
+}
+
+function switchTab(tab) {
+  document.querySelectorAll(".tab-content").forEach(function(el){
+    el.classList.remove("active");
+  });
+  document.querySelectorAll(".tab").forEach(function(el){
+    el.classList.remove("active");
+  });
+  document.getElementById("tab-" + tab).classList.add("active");
+  document.querySelector('.tab-bar .tab[onclick="switchTab(\'' + tab + '\')"]').classList.add("active");
+}
+
+async function cargarEntrega() {
+  var btn = document.querySelector("#form-entrega .btn");
+  btn.disabled = true;
+  btn.textContent = "Guardando...";
+
+  var data = {
+    codigo: document.getElementById("e-codigo").value,
+    cantidad: document.getElementById("e-cantidad").value,
+    precio: document.getElementById("e-precio").value,
+    socio: document.getElementById("e-socio").value,
+    cobro: document.getElementById("e-cobro").value,
+    sede: document.getElementById("e-sede").value || "Bariloche"
+  };
+
+  try {
+    var resp = await fetch(getApiUrl() + "/api/entrega", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    var result = await resp.json();
+    if (result.ok) {
+      mostrarToast("✅ Entrega cargada!", "ok");
+      document.getElementById("e-resultado").textContent = "Cargada: " + data.codigo + " - $" + data.precio;
+      // Limpiar form
+      document.getElementById("e-cantidad").value = "";
+      document.getElementById("e-precio").value = "";
+      document.getElementById("e-socio").value = "";
+    } else {
+      mostrarToast("❌ Error: " + (result.error || "desconocido"), "err");
+    }
+  } catch(e) {
+    mostrarToast("❌ No se pudo conectar. Estas en la red de tu casa?", "err");
+    document.getElementById("e-resultado").textContent = "Error de conexion. Asegurate de estar en el WiFi de tu casa.";
+  }
+  btn.disabled = false;
+  btn.textContent = "Guardar entrega";
+}
+
+async function cargarGasto() {
+  var btn = document.querySelector("#form-gasto .btn");
+  btn.disabled = true;
+  btn.textContent = "Guardando...";
+
+  var data = {
+    descripcion: document.getElementById("g-descripcion").value,
+    monto: document.getElementById("g-monto").value,
+    tipo: document.getElementById("g-tipo").value,
+    quien: document.getElementById("g-quien").value
+  };
+
+  try {
+    var resp = await fetch(getApiUrl() + "/api/gasto", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    var result = await resp.json();
+    if (result.ok) {
+      mostrarToast("✅ Gasto cargado!", "ok");
+      document.getElementById("g-resultado").textContent = "Cargado: " + data.descripcion + " - $" + data.monto;
+      document.getElementById("g-descripcion").value = "";
+      document.getElementById("g-monto").value = "";
+    } else {
+      mostrarToast("❌ Error: " + (result.error || "desconocido"), "err");
+    }
+  } catch(e) {
+    mostrarToast("❌ No se pudo conectar", "err");
+    document.getElementById("g-resultado").textContent = "Error de conexion.";
+  }
+  btn.disabled = false;
+  btn.textContent = "Guardar gasto";
+}
+
+</script>
 <div class="footer">
-Dashboard Contable &middot; La Ronda Bariloche &middot; Auto-refresh 5 min
-<br><span style="color:#444;font-size:11px;">Actualizado: 13/07/2026 15:00</span>
+Dashboard Contable &middot; La Ronda Bariloche
+<br><span style="color:#444;font-size:11px;">Actualizado: 13/07/2026 18:41</span>
 </div>
 </body></html>
