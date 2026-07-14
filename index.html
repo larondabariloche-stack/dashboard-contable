@@ -52,7 +52,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <body>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>14/07/2026 18:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>14/07/2026 19:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -64,10 +64,36 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
 <div class="tab" onclick="switchTab('entrega')">➕ Cargar Entrega</div>
 <div class="tab" onclick="switchTab('gasto')">➕ Cargar Gasto</div>
+<div class="tab" onclick="switchTab('saldo')">➕ Cargar Saldo</div>
 </div>
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
 <div class="alert awarn">🟡 3 productos con stock bajo (< 10)</div>
+</div>
+<div class="card" style="margin-bottom:16px;"><h2>Saldos por socio</h2>
+<table class="w"><tr><th>Socio</th><th style="text-align:right;">Saldo</th></tr>
+<tr><td>nico noceti</td><td style="text-align:right;color:#4ade80;font-weight:600;">$405.000</td></tr>
+<tr><td>isaac</td><td style="text-align:right;color:#4ade80;font-weight:600;">$270.000</td></tr>
+<tr><td>Luciano fred</td><td style="text-align:right;color:#4ade80;font-weight:600;">$220.000</td></tr>
+<tr><td>nico</td><td style="text-align:right;color:#4ade80;font-weight:600;">$220.000</td></tr>
+<tr><td>lau franze</td><td style="text-align:right;color:#4ade80;font-weight:600;">$180.000</td></tr>
+<tr><td>david</td><td style="text-align:right;color:#4ade80;font-weight:600;">$120.000</td></tr>
+<tr><td>luciano</td><td style="text-align:right;color:#4ade80;font-weight:600;">$120.000</td></tr>
+<tr><td>mauri super pizza</td><td style="text-align:right;color:#4ade80;font-weight:600;">$90.000</td></tr>
+<tr><td>la ronda central</td><td style="text-align:right;color:#4ade80;font-weight:600;">$79.000</td></tr>
+<tr><td>vir del</td><td style="text-align:right;color:#4ade80;font-weight:600;">$74.000</td></tr>
+<tr><td>david molina</td><td style="text-align:right;color:#4ade80;font-weight:600;">$70.000</td></tr>
+<tr><td>Mauri</td><td style="text-align:right;color:#4ade80;font-weight:600;">$70.000</td></tr>
+<tr><td>brenda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$51.000</td></tr>
+<tr><td>fede moto</td><td style="text-align:right;color:#4ade80;font-weight:600;">$50.000</td></tr>
+<tr><td>enzo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$50.000</td></tr>
+<tr><td>vir fdek</td><td style="text-align:right;color:#4ade80;font-weight:600;">$48.000</td></tr>
+<tr><td>vir fdel</td><td style="text-align:right;color:#4ade80;font-weight:600;">$40.000</td></tr>
+<tr><td>Lucas</td><td style="text-align:right;color:#4ade80;font-weight:600;">$35.000</td></tr>
+<tr><td>SAyo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$25.000</td></tr>
+<tr><td>Pablo</td><td style="text-align:right;color:#f87171;font-weight:600;">$-6.000</td></tr>
+<tr><td>pablo telias</td><td style="text-align:right;color:#f87171;font-weight:600;">$-10.000</td></tr>
+</table>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
 <table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
@@ -311,6 +337,23 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <p id="g-resultado" style="margin-top:8px;font-size:13px;color:#888;"></p>
 </div>
 </div>
+<div id="tab-saldo" class="tab-content">
+<div class="card">
+<h2>Cargar saldo de socio</h2>
+<p style="font-size:13px;color:#666;margin-bottom:10px;">Usar cuando un socio paga por adelantado o recarga saldo.</p>
+<div id="form-saldo">
+<div class="form-row">
+<input type="text" id="s-socio" placeholder="Nombre del socio" list="socios-list" style="flex:2;">
+<input type="text" id="s-monto" placeholder="Monto $" inputmode="numeric">
+</div>
+<div class="form-row">
+<select id="s-aquien"><option value="juan caja">Juan</option><option value="achu caja">Achu</option><option value="caja">Caja</option><option value="mercado pago">Mercado Pago</option><option value="efectivo">Efectivo</option></select>
+<button class="btn btn-primary" onclick="cargarSaldo()">Guardar saldo</button>
+</div>
+</div>
+<p id="s-resultado" style="margin-top:8px;font-size:13px;color:#888;"></p>
+</div>
+</div>
 <div id="toast" class="toast"></div>
 <script>
 
@@ -413,9 +456,43 @@ async function cargarGasto() {
   btn.textContent = "Guardar gasto";
 }
 
+async function cargarSaldo() {
+  var btn = document.querySelector("#form-saldo .btn");
+  btn.disabled = true;
+  btn.textContent = "Guardando...";
+
+  var data = {
+    socio: document.getElementById("s-socio").value,
+    monto: document.getElementById("s-monto").value,
+    aquien: document.getElementById("s-aquien").value
+  };
+
+  try {
+    var resp = await fetch(getApiUrl() + "/api/saldo", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    var result = await resp.json();
+    if (result.ok) {
+      mostrarToast("✅ Saldo cargado!", "ok");
+      document.getElementById("s-resultado").textContent = data.socio + " - $" + data.monto;
+      document.getElementById("s-socio").value = "";
+      document.getElementById("s-monto").value = "";
+    } else {
+      mostrarToast("❌ Error: " + (result.error || "desconocido"), "err");
+    }
+  } catch(e) {
+    mostrarToast("❌ No se pudo conectar", "err");
+    document.getElementById("s-resultado").textContent = "Error de conexion.";
+  }
+  btn.disabled = false;
+  btn.textContent = "Guardar saldo";
+}
+
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 14/07/2026 18:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 14/07/2026 19:00</span>
 </div>
 </body></html>
