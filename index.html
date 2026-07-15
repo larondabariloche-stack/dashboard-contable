@@ -52,13 +52,13 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <body>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>15/07/2026 09:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>15/07/2026 09:49</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
-<div class="card"><h2>Ingresos Julio</h2><div class="num green">$350.010</div></div>
-<div class="card"><h2>Gastos Julio</h2><div class="num red">$150.095</div></div>
-<div class="card"><h2>Balance Julio</h2><div class="num green">$199.915</div></div>
+<div class="card"><h2>Ingresos Julio</h2><div class="num green">$356.010</div></div>
+<div class="card"><h2>Gastos Julio</h2><div class="num red">$151.595</div></div>
+<div class="card"><h2>Balance Julio</h2><div class="num green">$204.415</div></div>
 </div>
 <div class="tab-bar">
 <div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
@@ -90,6 +90,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>📄 vir fdek</td><td style="text-align:right;color:#4ade80;font-weight:600;">$48.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
 <tr><td>📄 vir fdel</td><td style="text-align:right;color:#4ade80;font-weight:600;">$40.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
 <tr><td>📄 Lucas</td><td style="text-align:right;color:#4ade80;font-weight:600;">$35.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
+<tr><td>📄 Test Juan</td><td style="text-align:right;color:#4ade80;font-weight:600;">$30.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
 <tr><td>📄 SAyo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$25.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
 <tr><td>📄 prueba juan</td><td style="text-align:right;color:#4ade80;font-weight:600;">$25.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
 <tr><td>📄 test</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10.000</td><td style="color:#888;font-size:12px;">Nos deben</td></tr>
@@ -156,6 +157,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <option value="Juan Ignacio Ortiz">
 <option value="Juan Manuel Kokollo">
 <option value="Juan Pérez">
+<option value="Juan Test">
 <option value="Juan medialunas">
 <option value="Lau">
 <option value="Lau Franze">
@@ -316,7 +318,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <option value="yair">
 <option value="yamil peralta">
 </datalist>
-<select id="e-cobro"><option value="">Cobro</option><option value="juan">Juan</option><option value="efectivo">Efectivo</option><option value="pendiente">Pendiente</option></select>
+<select id="e-cobro"><option value="">Cobro</option><option value="efectivo">Efectivo</option><option value="ronda">Ronda</option><option value="juan">Juan</option><option value="achu">Achu</option><option value="pendiente">Pendiente (suma saldo)</option></select>
 <input type="text" id="e-sede" placeholder="Sede" value="Bariloche">
 </div>
 <button class="btn btn-primary" onclick="cargarEntrega()">Guardar entrega</button>
@@ -494,6 +496,6 @@ async function cargarSaldo() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 15/07/2026 09:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 15/07/2026 09:49</span>
 </div>
 </body></html>
