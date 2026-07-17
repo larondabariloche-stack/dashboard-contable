@@ -52,7 +52,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <body>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>17/07/2026 17:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>17/07/2026 17:08</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -121,17 +121,114 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <h2>Nueva entrega</h2>
 <div id="form-entrega">
 <div class="form-row">
-<select id="e-codigo"><option value="">Codigo...</option>
-<option value="AND">AND</option>
-<option value="CPO">CPO</option>
-<option value="CRM">CRM</option>
-<option value="GRL">GRL</option>
-<option value="HNK">HNK</option>
-<option value="HNV">HNV</option>
-<option value="TAN">TAN</option>
-<option value="TRO">TRO</option>
-<option value="VPO">VPO</option>
-</select>
+<input type="text" id="e-codigo" placeholder="Código del producto" list="codigos-list">
+<datalist id="codigos-list">
+<option value="10 bomba, 10 forbidden, 5 red, 10 inv wesley, 5 lemon cherry">
+<option value="4 lemon y 1 forbidden">
+<option value="5 bomba, 5 forbb y 2 inv. wesley">
+<option value="5 exotic fusion">
+<option value="5 exotic y 5 biker">
+<option value="5 invernadero wesley">
+<option value="5 lemon">
+<option value="AND">
+<option value="Aceite">
+<option value="Apple">
+<option value="Biker">
+<option value="CArtucho vapo">
+<option value="CPO">
+<option value="CRM">
+<option value="Capsulas">
+<option value="Cartucho vapo">
+<option value="Exterior">
+<option value="Federico Berconsky">
+<option value="GRL">
+<option value="HNK">
+<option value="HNV">
+<option value="Hindu">
+<option value="Indoor">
+<option value="Indoor y ocut dorr">
+<option value="Invernadero Wesley">
+<option value="Isac de Campar">
+<option value="Mandarin y hindu">
+<option value="OUT">
+<option value="PRUEBA">
+<option value="Pago saldo">
+<option value="Promo Wesley Invernadero">
+<option value="Sanatnesia">
+<option value="Santanesia">
+<option value="TAN">
+<option value="TEST">
+<option value="TEST-COL">
+<option value="TRO">
+<option value="VPO">
+<option value="aceite">
+<option value="adaptogenos cordiceps">
+<option value="alvaro muestra">
+<option value="andres">
+<option value="apple">
+<option value="autos alvaro">
+<option value="bajas">
+<option value="bajas hindu">
+<option value="biker">
+<option value="bikers bike">
+<option value="bomba">
+<option value="canawine">
+<option value="cannawine">
+<option value="cargador vapo">
+<option value="cartucho vapo">
+<option value="cartucho y bateria">
+<option value="cartuchos">
+<option value="cream mandarin">
+<option value="cream mandarine">
+<option value="cream mndarine">
+<option value="crema">
+<option value="entrega">
+<option value="entrega 5 invernadero">
+<option value="esterior">
+<option value="exoitic">
+<option value="exotic">
+<option value="exotic fusion">
+<option value="exotic, power, red, apple, bomba">
+<option value="exotic⁹">
+<option value="exterior">
+<option value="flores andres">
+<option value="forbiden">
+<option value="fuel mandarin">
+<option value="gomitas">
+<option value="gorilla">
+<option value="gorilla glue">
+<option value="gren mandarine">
+<option value="hindu">
+<option value="hindu kush">
+<option value="indoor">
+<option value="invernadero">
+<option value="invernadero wesley">
+<option value="inverno promo mundial">
+<option value="lemon cherry">
+<option value="limón cherry">
+<option value="limón churra mint">
+<option value="mandarin">
+<option value="marino ponce">
+<option value="mimosa">
+<option value="outdoor">
+<option value="power">
+<option value="power s1">
+<option value="promo invernadero">
+<option value="promo invernadero wesley">
+<option value="promo invernadero y 1 aceite">
+<option value="promo mundial">
+<option value="promo santa esia">
+<option value="promo wesley">
+<option value="red steam">
+<option value="red stem">
+<option value="red stems">
+<option value="red stems 30, apple y bomba 5">
+<option value="reprocann">
+<option value="saldo">
+<option value="santanesia">
+<option value="tropicana">
+<option value="vream mandarine">
+</datalist>
 <input type="text" id="e-cantidad" placeholder="Cantidad" inputmode="numeric">
 <input type="text" id="e-precio" placeholder="Precio total $ (ej: 45000)" inputmode="numeric">
 </div>
@@ -504,6 +601,6 @@ async function cargarSaldo() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 17/07/2026 17:00</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 17/07/2026 17:08</span>
 </div>
 </body></html>
