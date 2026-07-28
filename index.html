@@ -63,13 +63,13 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>28/07/2026 17:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>28/07/2026 17:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
-<div class="card"><h2>Ingresos Julio</h2><div class="num green">$778.030</div></div>
+<div class="card"><h2>Ingresos Julio</h2><div class="num green">$938.030</div></div>
 <div class="card"><h2>Gastos Julio</h2><div class="num red">$986.595</div></div>
-<div class="card"><h2>Balance Julio</h2><div class="num red">$-208.565</div></div>
+<div class="card"><h2>Balance Julio</h2><div class="num red">$-48.565</div></div>
 </div>
 <div class="tab-bar">
 <div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
@@ -80,7 +80,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
 <div class="alert awarn">🟡 4 productos con stock bajo (< 10)</div>
-<div class="alert adanger">🔴 Gastos superan ingresos x1.3</div>
+<div class="alert adanger">🔴 Gastos superan ingresos x1.1</div>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Saldos por socio</h2>
 <table class="w"><tr><th>Socio</th><th style="text-align:right;">Saldo</th><th>Estado</th></tr>
@@ -125,13 +125,13 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💰 Ingresos por origen</h2>
 <table class="w"><tr><th>Origen</th><th style="text-align:right;">Monto</th></tr>
+<tr><td>Ronda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$390.020</td></tr>
 <tr><td>Juan</td><td style="text-align:right;color:#4ade80;font-weight:600;">$350.000</td></tr>
-<tr><td>Ronda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$230.020</td></tr>
 <tr><td>Efectivo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$78.010</td></tr>
 <tr><td>Pendiente</td><td style="text-align:right;color:#4ade80;font-weight:600;">$60.000</td></tr>
 <tr><td>La ronda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$60.000</td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $778.030</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $938.030</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💸 Gastos por quién</h2>
 <table class="w"><tr><th>Quién</th><th style="text-align:right;">Monto</th></tr>
@@ -220,6 +220,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <option value="cartucho vapo">
 <option value="cartucho y bateria">
 <option value="cartuchos">
+<option value="channel">
 <option value="cream mandarin">
 <option value="cream mandarine">
 <option value="cream mndarine">
@@ -643,6 +644,6 @@ async function cargarSaldo() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 28/07/2026 17:00</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 28/07/2026 17:30</span>
 </div>
 </body></html>
