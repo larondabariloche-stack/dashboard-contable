@@ -63,7 +63,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>14/08/2026 10:12</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>14/08/2026 10:22</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -80,7 +80,6 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
-<div class="alert awarn">🟡 4 productos con stock bajo (< 10)</div>
 <div class="alert adanger">🔴 Gastos superan ingresos x2.5</div>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Saldos por socio</h2>
@@ -140,17 +139,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <p style="font-size:12px;color:#555;margin-top:4px;">Total gastos: $300.000</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
-<table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
-<tr><td>TAN</td><td>Tanque x ice cream</td><td style="text-align:right;color:#f87171;font-weight:600;">3</td></tr>
-<tr><td>VPO</td><td>Cartucho THC</td><td style="text-align:right;color:#f87171;font-weight:600;">3</td></tr>
-<tr><td>CRM</td><td>crema cannabis jar</td><td style="text-align:right;color:#f87171;font-weight:600;">4</td></tr>
-<tr><td>CPO</td><td>Cargador Vapo</td><td style="text-align:right;color:#f87171;font-weight:600;">5</td></tr>
-<tr><td>GRL</td><td>Gorila glue</td><td style="text-align:right;color:#4ade80;font-weight:600;">20</td></tr>
-<tr><td>AND</td><td>andres</td><td style="text-align:right;color:#4ade80;font-weight:600;">25</td></tr>
-<tr><td>TRO</td><td>Tropicana</td><td style="text-align:right;color:#4ade80;font-weight:600;">25</td></tr>
-<tr><td>HNV</td><td>hindu kush</td><td style="text-align:right;color:#4ade80;font-weight:600;">160</td></tr>
-<tr><td>HNK</td><td>hindu kush</td><td style="text-align:right;color:#f87171;font-weight:600;">-36</td></tr>
-</table>
+<p style="color:#666;">Sin datos de stock</p>
 </div>
 </div>
 <div id="tab-entrega" class="tab-content">
@@ -173,8 +162,6 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <option value="Biker">
 <option value="Biker invernadero">
 <option value="CArtucho vapo">
-<option value="CPO">
-<option value="CRM">
 <option value="Capsulas">
 <option value="Cartucho vapo">
 <option value="Channel">
@@ -182,7 +169,6 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <option value="Federico Berconsky">
 <option value="GRL">
 <option value="HNK">
-<option value="HNV">
 <option value="Hindu">
 <option value="Indoor">
 <option value="Indoor y ocut dorr">
@@ -714,6 +700,6 @@ async function cargarStock() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 10:12</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 10:22</span>
 </div>
 </body></html>
