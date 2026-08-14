@@ -63,7 +63,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>14/08/2026 13:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>14/08/2026 13:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -81,6 +81,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
 <div class="alert adanger">🔴 1 productos sin stock</div>
+<div class="alert awarn">🟡 1 productos con stock bajo (< 10)</div>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Saldos por socio</h2>
 <table class="w"><tr><th>Socio</th><th style="text-align:right;">Saldo</th><th>Estado</th><th>Último concepto</th></tr>
@@ -142,6 +143,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
 <table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
 <tr><td>001</td><td>Tropicana</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
+<tr><td>002</td><td>aceite q2</td><td style="text-align:right;color:#f87171;font-weight:600;">1</td></tr>
 </table>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>📦 Últimas entregas</h2>
@@ -173,6 +175,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <input type="text" id="e-codigo" placeholder="Código o nombre del producto" list="productos-list">
 <datalist id="productos-list">
 <option value="001">
+<option value="002">
 <option value="10 bomba, 10 forbidden, 5 red, 10 inv wesley, 5 lemon cherry">
 <option value="4 lemon y 1 forbidden">
 <option value="5 bomba, 5 forbb y 2 inv. wesley">
@@ -281,6 +284,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <option value="tropicana">
 <option value="vream mandarine">
 <option value="Tropicana">
+<option value="aceite q2">
 </datalist>
 <input type="text" id="e-cantidad" placeholder="Cantidad" inputmode="numeric">
 <input type="text" id="e-precio" placeholder="Precio total $ (ej: 45000)" inputmode="numeric">
@@ -532,6 +536,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <input type="text" id="st-producto" placeholder="Nombre del producto (o código)" list="nombres-list" style="flex:1;">
 <datalist id="nombres-list">
 <option value="Tropicana">
+<option value="aceite q2">
 </datalist>
 <select id="st-operacion" style="flex:0 0 130px;"><option value="sumar">➕ Sumar</option><option value="restar">➖ Restar</option><option value="set">✏️ Poner exacto</option></select>
 <input type="text" id="st-cantidad" placeholder="Cantidad" inputmode="numeric" style="flex:0 0 110px;">
@@ -547,7 +552,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div id="toast" class="toast"></div>
 <script>
-var PRODUCTOS = [["001", "Tropicana"]];
+var PRODUCTOS = [["001", "Tropicana"], ["002", "aceite q2"]];
 
 function getApiUrl() {
   // Usa tunnel si disponible, sino cae a IP local
@@ -743,6 +748,6 @@ async function cargarStock() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 13:00</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 13:30</span>
 </div>
 </body></html>
