@@ -63,7 +63,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>14/08/2026 10:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>14/08/2026 10:41</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -147,8 +147,8 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <h2>Nueva entrega</h2>
 <div id="form-entrega">
 <div class="form-row">
-<input type="text" id="e-codigo" placeholder="Código del producto" list="codigos-list">
-<datalist id="codigos-list">
+<input type="text" id="e-codigo" placeholder="Código o nombre del producto" list="productos-list">
+<datalist id="productos-list">
 <option value="10 bomba, 10 forbidden, 5 red, 10 inv wesley, 5 lemon cherry">
 <option value="4 lemon y 1 forbidden">
 <option value="5 bomba, 5 forbb y 2 inv. wesley">
@@ -499,18 +499,17 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div id="tab-stock" class="tab-content">
 <div class="card">
 <h2>Cargar / ajustar stock</h2>
-<p style="font-size:13px;color:#666;margin-bottom:10px;">➕ Sumar / ➖ Restar / ✏️ Poner cantidad exacta.<br>Si el código no existe, completá Nombre (y Costo) para darlo de alta.</p>
+<p style="font-size:13px;color:#666;margin-bottom:10px;">➕ Sumar / ➖ Restar / ✏️ Poner cantidad exacta.<br>Escribí el <b>nombre</b> del producto. Si no existe, se crea solo con código automático (Costo opcional en el alta).</p>
 <div id="form-stock">
 <div class="form-row">
-<input type="text" id="st-codigo" placeholder="Código del producto" list="codigos-list" style="flex:1;">
+<input type="text" id="st-producto" placeholder="Nombre del producto (o código)" list="nombres-list" style="flex:1;">
+<datalist id="nombres-list">
+</datalist>
 <select id="st-operacion" style="flex:0 0 130px;"><option value="sumar">➕ Sumar</option><option value="restar">➖ Restar</option><option value="set">✏️ Poner exacto</option></select>
 <input type="text" id="st-cantidad" placeholder="Cantidad" inputmode="numeric" style="flex:0 0 110px;">
 </div>
 <div class="form-row">
-<input type="text" id="st-nombre" placeholder="Nombre (solo si es producto NUEVO)" style="flex:1;">
-<input type="text" id="st-costo" placeholder="Costo/unidad (solo si es nuevo)" inputmode="numeric" style="flex:1;">
-</div>
-<div class="form-row">
+<input type="text" id="st-costo" placeholder="Costo/unidad (solo si es producto NUEVO)" inputmode="numeric" style="flex:1;">
 <input type="text" id="st-nota" placeholder="Nota (opcional): compra, merma, ajuste..." style="flex:1;">
 </div>
 <button class="btn btn-primary" onclick="cargarStock()">Guardar stock</button>
@@ -520,6 +519,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div id="toast" class="toast"></div>
 <script>
+var PRODUCTOS = [];
 
 function getApiUrl() {
   // Usa tunnel si disponible, sino cae a IP local
@@ -552,13 +552,24 @@ async function cargarEntrega() {
   btn.textContent = "Guardando...";
 
   var data = {
-    codigo: document.getElementById("e-codigo").value,
     cantidad: document.getElementById("e-cantidad").value,
     precio: document.getElementById("e-precio").value,
     socio: document.getElementById("e-socio").value,
     cobro: document.getElementById("e-cobro").value,
     sede: document.getElementById("e-sede").value || "Bariloche"
   };
+  // Resolver producto: si es código conocido lo manda como código, si es nombre como nombre
+  var texto = document.getElementById("e-codigo").value.trim();
+  var match = null;
+  for (var i = 0; i < PRODUCTOS.length; i++) {
+    if (PRODUCTOS[i][0].toLowerCase() === texto.toLowerCase()) { match = ["codigo", PRODUCTOS[i][0]]; break; }
+  }
+  if (!match) {
+    for (var i = 0; i < PRODUCTOS.length; i++) {
+      if (PRODUCTOS[i][1].toLowerCase() === texto.toLowerCase()) { match = ["nombre", PRODUCTOS[i][1]]; break; }
+    }
+  }
+  if (match) { data[match[0]] = match[1]; } else { data.codigo = texto; }
 
   try {
     var resp = await fetch(getApiUrl() + "/api/entrega", {
@@ -569,7 +580,7 @@ async function cargarEntrega() {
     var result = await resp.json();
     if (result.ok) {
       mostrarToast("✅ Entrega cargada!", "ok");
-      document.getElementById("e-resultado").textContent = "Cargada: " + data.codigo + " - $" + data.precio;
+      document.getElementById("e-resultado").textContent = "Cargada: " + (data.codigo || data.nombre) + " - $" + data.precio;
       // Limpiar form
       document.getElementById("e-cantidad").value = "";
       document.getElementById("e-precio").value = "";
@@ -661,10 +672,9 @@ async function cargarStock() {
   btn.textContent = "Guardando...";
 
   var data = {
-    codigo: document.getElementById("st-codigo").value,
+    producto: document.getElementById("st-producto").value,
     operacion: document.getElementById("st-operacion").value,
     cantidad: document.getElementById("st-cantidad").value,
-    nombre: document.getElementById("st-nombre").value,
     costo: document.getElementById("st-costo").value,
     nota: document.getElementById("st-nota").value
   };
@@ -680,7 +690,6 @@ async function cargarStock() {
       mostrarToast("✅ " + result.mensaje, "ok");
       document.getElementById("st-resultado").textContent = result.mensaje;
       document.getElementById("st-cantidad").value = "";
-      document.getElementById("st-nombre").value = "";
       document.getElementById("st-costo").value = "";
       document.getElementById("st-nota").value = "";
       // Recargar para ver el stock actualizado
@@ -700,6 +709,6 @@ async function cargarStock() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 10:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 10:41</span>
 </div>
 </body></html>
