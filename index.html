@@ -63,7 +63,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>14/08/2026 10:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>14/08/2026 10:12</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -76,6 +76,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="tab" onclick="switchTab('entrega')">➕ Cargar Entrega</div>
 <div class="tab" onclick="switchTab('gasto')">➕ Cargar Gasto</div>
 <div class="tab" onclick="switchTab('saldo')">➕ Cargar Saldo</div>
+<div class="tab" onclick="switchTab('stock')">📦 Cargar Stock</div>
 </div>
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
@@ -509,6 +510,28 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <p id="s-resultado" style="margin-top:8px;font-size:13px;color:#888;"></p>
 </div>
 </div>
+<div id="tab-stock" class="tab-content">
+<div class="card">
+<h2>Cargar / ajustar stock</h2>
+<p style="font-size:13px;color:#666;margin-bottom:10px;">➕ Sumar / ➖ Restar / ✏️ Poner cantidad exacta.<br>Si el código no existe, completá Nombre (y Costo) para darlo de alta.</p>
+<div id="form-stock">
+<div class="form-row">
+<input type="text" id="st-codigo" placeholder="Código del producto" list="codigos-list" style="flex:1;">
+<select id="st-operacion" style="flex:0 0 130px;"><option value="sumar">➕ Sumar</option><option value="restar">➖ Restar</option><option value="set">✏️ Poner exacto</option></select>
+<input type="text" id="st-cantidad" placeholder="Cantidad" inputmode="numeric" style="flex:0 0 110px;">
+</div>
+<div class="form-row">
+<input type="text" id="st-nombre" placeholder="Nombre (solo si es producto NUEVO)" style="flex:1;">
+<input type="text" id="st-costo" placeholder="Costo/unidad (solo si es nuevo)" inputmode="numeric" style="flex:1;">
+</div>
+<div class="form-row">
+<input type="text" id="st-nota" placeholder="Nota (opcional): compra, merma, ajuste..." style="flex:1;">
+</div>
+<button class="btn btn-primary" onclick="cargarStock()">Guardar stock</button>
+</div>
+<p id="st-resultado" style="margin-top:8px;font-size:13px;color:#888;"></p>
+</div>
+</div>
 <div id="toast" class="toast"></div>
 <script>
 
@@ -646,9 +669,51 @@ async function cargarSaldo() {
   btn.textContent = "Guardar saldo";
 }
 
+async function cargarStock() {
+  var btn = document.querySelector("#form-stock .btn");
+  btn.disabled = true;
+  btn.textContent = "Guardando...";
+
+  var data = {
+    codigo: document.getElementById("st-codigo").value,
+    operacion: document.getElementById("st-operacion").value,
+    cantidad: document.getElementById("st-cantidad").value,
+    nombre: document.getElementById("st-nombre").value,
+    costo: document.getElementById("st-costo").value,
+    nota: document.getElementById("st-nota").value
+  };
+
+  try {
+    var resp = await fetch(getApiUrl() + "/api/stock", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    var result = await resp.json();
+    if (result.ok) {
+      mostrarToast("✅ " + result.mensaje, "ok");
+      document.getElementById("st-resultado").textContent = result.mensaje;
+      document.getElementById("st-cantidad").value = "";
+      document.getElementById("st-nombre").value = "";
+      document.getElementById("st-costo").value = "";
+      document.getElementById("st-nota").value = "";
+      // Recargar para ver el stock actualizado
+      setTimeout(function(){ location.reload(); }, 1500);
+    } else {
+      mostrarToast("❌ " + (result.error || "desconocido"), "err");
+      document.getElementById("st-resultado").textContent = result.error || "";
+    }
+  } catch(e) {
+    mostrarToast("❌ No se pudo conectar", "err");
+    document.getElementById("st-resultado").textContent = "Error de conexion.";
+  }
+  btn.disabled = false;
+  btn.textContent = "Guardar stock";
+}
+
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 10:00</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 10:12</span>
 </div>
 </body></html>
