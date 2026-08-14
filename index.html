@@ -63,13 +63,13 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>14/08/2026 14:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>14/08/2026 14:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
-<div class="card"><h2>Ingresos Agosto</h2><div class="num green">$495.000</div></div>
+<div class="card"><h2>Ingresos Agosto</h2><div class="num green">$705.000</div></div>
 <div class="card"><h2>Gastos Agosto</h2><div class="num red">$300.000</div></div>
-<div class="card"><h2>Balance Agosto</h2><div class="num green">$195.000</div></div>
+<div class="card"><h2>Balance Agosto</h2><div class="num green">$405.000</div></div>
 </div>
 <div class="tab-bar">
 <div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
@@ -81,6 +81,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
 <div class="alert adanger">🔴 1 productos sin stock</div>
+<div class="alert awarn">🟡 1 productos con stock bajo (< 10)</div>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Saldos por socio</h2>
 <table class="w"><tr><th>Socio</th><th style="text-align:right;">Saldo</th><th>Estado</th><th>Último concepto</th></tr>
@@ -128,11 +129,11 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💰 Ingresos por origen</h2>
 <table class="w"><tr><th>Origen</th><th style="text-align:right;">Monto</th></tr>
+<tr><td>Sin especificar</td><td style="text-align:right;color:#4ade80;font-weight:600;">$270.000</td></tr>
 <tr><td>Ronda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$245.000</td></tr>
 <tr><td>Efectivo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$190.000</td></tr>
-<tr><td>Sin especificar</td><td style="text-align:right;color:#4ade80;font-weight:600;">$60.000</td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $495.000</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $705.000</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💸 Gastos por quién</h2>
 <table class="w"><tr><th>Quién</th><th style="text-align:right;">Monto</th></tr>
@@ -143,7 +144,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
 <table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
 <tr><td>002</td><td>aceite q2</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
-<tr><td>001</td><td>Tropicana</td><td style="text-align:right;color:#4ade80;font-weight:600;">25</td></tr>
+<tr><td>001</td><td>Tropicana</td><td style="text-align:right;color:#f87171;font-weight:600;">8</td></tr>
 </table>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>📦 Últimas entregas</h2>
@@ -153,6 +154,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>14/08</td><td>aceite q2</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$70.000</td><td>efectivo</td><td>jessica</td><td>Bariloche</td></tr>
 <tr><td>14/08</td><td>tremella adaptogenos</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$45.000</td><td>ronda</td><td>Nelson</td><td>Bariloche</td></tr>
 <tr><td>14/08</td><td>1</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$60.000</td><td></td><td>Nelson</td><td>Bariloche</td></tr>
+<tr><td>14/08</td><td>1</td><td style="text-align:right;">17</td><td style="text-align:right;font-weight:600;">$210.000</td><td></td><td>facundo marchetti</td><td>Bariloche</td></tr>
 <tr><td>04/08</td><td>Invernadero</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$120.000</td><td>efectivo</td><td>Lucia</td><td>Bariloche</td></tr>
 <tr><td>29/07</td><td>Channel</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$60.000</td><td>pendiente</td><td>Fabian</td><td>Bariloche</td></tr>
 <tr><td>29/07</td><td>Channel</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$60.000</td><td>efectivo</td><td>Lucia</td><td>Bariloche</td></tr>
@@ -162,9 +164,8 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>17/07</td><td>Biker</td><td style="text-align:right;">6</td><td style="text-align:right;font-weight:600;">$72.000</td><td>efectivo</td><td>Lau Rossi</td><td>Bariloche</td></tr>
 <tr><td>17/07</td><td>Aceite</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$65.000</td><td>ronda</td><td>Grace</td><td>Bariloche</td></tr>
 <tr><td>17/07</td><td>AND</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$10</td><td>ronda</td><td>Prueba</td><td>Bariloche</td></tr>
-<tr><td>16/07</td><td>red stems</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$170.000</td><td>juan</td><td>nicole dalcecio</td><td></td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Mostrando las últimas 15 de 384 entregas.</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Mostrando las últimas 15 de 385 entregas.</p>
 </div>
 </div>
 <div id="tab-entrega" class="tab-content">
@@ -753,6 +754,6 @@ async function cargarStock() {
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 14:00</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 14/08/2026 14:30</span>
 </div>
 </body></html>
