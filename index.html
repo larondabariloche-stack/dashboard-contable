@@ -63,13 +63,13 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>18/08/2026 13:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>18/08/2026 14:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
-<div class="card"><h2>Ingresos Agosto</h2><div class="num green">$1.577.010</div></div>
+<div class="card"><h2>Ingresos Agosto</h2><div class="num green">$1.577.020</div></div>
 <div class="card"><h2>Gastos Agosto</h2><div class="num red">$300.000</div></div>
-<div class="card"><h2>Balance Agosto</h2><div class="num green">$1.277.010</div></div>
+<div class="card"><h2>Balance Agosto</h2><div class="num green">$1.277.020</div></div>
 </div>
 <div class="tab-bar">
 <div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
@@ -122,6 +122,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>📄 Jero</td><td style="text-align:right;color:#4ade80;font-weight:600;">$20.000</td><td style="color:#888;font-size:12px;">Nos deben</td><td style="color:#888;font-size:12px;"></td></tr>
 <tr><td>📄 La ronda central</td><td style="text-align:right;color:#4ade80;font-weight:600;">$19.000</td><td style="color:#888;font-size:12px;">Nos deben</td><td style="color:#888;font-size:12px;"></td></tr>
 <tr><td>📄 test</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10.000</td><td style="color:#888;font-size:12px;">Nos deben</td><td style="color:#888;font-size:12px;"></td></tr>
+<tr><td>📄 Prueba</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10</td><td style="color:#888;font-size:12px;">Nos deben</td><td style="color:#888;font-size:12px;"></td></tr>
 <tr><td>📄 Pablo</td><td style="text-align:right;color:#f87171;font-weight:600;">$-6.000</td><td style="color:#888;font-size:12px;">Les debemos</td><td style="color:#888;font-size:12px;"></td></tr>
 <tr><td>📄 pablo telias</td><td style="text-align:right;color:#f87171;font-weight:600;">$-10.000</td><td style="color:#888;font-size:12px;">Les debemos</td><td style="color:#888;font-size:12px;"></td></tr>
 </table>
@@ -132,8 +133,9 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>Ronda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$1.205.000</td></tr>
 <tr><td>Efectivo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$246.010</td></tr>
 <tr><td>Debe</td><td style="text-align:right;color:#4ade80;font-weight:600;">$126.000</td></tr>
+<tr><td>Pendiente</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10</td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $1.577.010</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $1.577.020</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💸 Gastos por quién</h2>
 <table class="w"><tr><th>Quién</th><th style="text-align:right;">Monto</th></tr>
@@ -152,6 +154,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>📦 Últimas entregas</h2>
 <table class="w"><tr><th>Fecha</th><th>Producto</th><th style="text-align:right;">Cant</th><th style="text-align:right;">Precio</th><th>Cobro</th><th>Socio</th><th>Sede</th></tr>
+<tr><td>18/08</td><td>1</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$10</td><td>pendiente</td><td>Prueba</td><td>Bariloche</td></tr>
 <tr><td>17/08</td><td>Tropicana</td><td style="text-align:right;">4</td><td style="text-align:right;font-weight:600;">$56.000</td><td>efectivo</td><td></td><td></td></tr>
 <tr><td>17/08</td><td>1</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$10</td><td>efectivo</td><td>Prueba</td><td>Bariloche</td></tr>
 <tr><td>15/08</td><td>Tropicana</td><td style="text-align:right;">15</td><td style="text-align:right;font-weight:600;">$210.000</td><td>ronda</td><td>nadia palm</td><td></td></tr>
@@ -166,9 +169,8 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">17</td><td style="text-align:right;font-weight:600;">$210.000</td><td>ronda</td><td>facundo marchetti</td><td>Bariloche</td></tr>
 <tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$140.000</td><td>ronda</td><td>eladio almonacid</td><td></td></tr>
 <tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$70.000</td><td>ronda</td><td>flor grassi</td><td></td></tr>
-<tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">20</td><td style="text-align:right;font-weight:600;">$0</td><td>efectivo</td><td>fausto</td><td></td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Mostrando las últimas 15 de 394 entregas.</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Mostrando las últimas 15 de 395 entregas.</p>
 </div>
 </div>
 <div id="tab-entrega" class="tab-content">
@@ -800,6 +802,6 @@ cargarPendientes();
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 18/08/2026 13:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 18/08/2026 14:00</span>
 </div>
 </body></html>
