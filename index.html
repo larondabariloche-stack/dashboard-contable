@@ -63,7 +63,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>18/08/2026 12:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>18/08/2026 12:58</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -146,6 +146,9 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <tr><td>002</td><td>aceite q2</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
 <tr><td>001</td><td>Tropicana</td><td style="text-align:right;color:#4ade80;font-weight:600;">34</td></tr>
 </table>
+</div>
+<div class="card" style="margin-bottom:16px;"><h2>⏳ Pedidos no entregados</h2>
+<div id="pendientes-list"><p style="color:#666;">Cargando...</p></div>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>📦 Últimas entregas</h2>
 <table class="w"><tr><th>Fecha</th><th>Producto</th><th style="text-align:right;">Cant</th><th style="text-align:right;">Precio</th><th>Cobro</th><th>Socio</th><th>Sede</th></tr>
@@ -497,6 +500,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </datalist>
 <select id="e-cobro"><option value="">Cobro</option><option value="efectivo">Efectivo</option><option value="ronda">Ronda</option><option value="juan">Juan</option><option value="achu">Achu</option><option value="pendiente">Pendiente (suma saldo)</option></select>
 <input type="text" id="e-sede" placeholder="Sede" value="Bariloche">
+<select id="e-estado"><option value="entregado">✅ Entregado</option><option value="no entregado">⏳ No entregado</option></select>
 </div>
 <button class="btn btn-primary" onclick="cargarEntrega()">Guardar entrega</button>
 </div>
@@ -600,7 +604,8 @@ async function cargarEntrega() {
     precio: document.getElementById("e-precio").value,
     socio: document.getElementById("e-socio").value,
     cobro: document.getElementById("e-cobro").value,
-    sede: document.getElementById("e-sede").value || "Bariloche"
+    sede: document.getElementById("e-sede").value || "Bariloche",
+    estado: document.getElementById("e-estado").value
   };
   // Resolver producto: si es código conocido lo manda como código, si es nombre como nombre
   var texto = document.getElementById("e-codigo").value.trim();
@@ -756,9 +761,45 @@ async function cargarStock() {
   btn.textContent = "Guardar stock";
 }
 
+// ── Pedidos no entregados ──
+function marcarEntregado(fila, btn) {
+  btn.disabled = true;
+  fetch(getApiUrl() + "/api/entrega/estado", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({fila: fila, estado: "entregado"})
+  }).then(function(r){ return r.json(); }).then(function(res){
+    if (res.ok) { mostrarToast("✅ Marcado como entregado", "ok"); cargarPendientes(); }
+    else { mostrarToast("❌ " + (res.error || "Error"), "err"); btn.disabled = false; }
+  }).catch(function(){ mostrarToast("❌ No se pudo conectar", "err"); btn.disabled = false; });
+}
+
+function cargarPendientes() {
+  var caja = document.getElementById("pendientes-list");
+  if (!caja) return;
+  fetch(getApiUrl() + "/api/entregas/pendientes")
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (!res.ok) { caja.innerHTML = '<p style="color:#f87171;">Error al cargar pendientes.</p>'; return; }
+      var p = res.pendientes || [];
+      if (p.length === 0) { caja.innerHTML = '<p style="color:#666;">Sin pedidos pendientes ✅</p>'; return; }
+      var h = '<table class="w"><tr><th>Fecha</th><th>Producto</th><th style="text-align:right;">Cant</th><th style="text-align:right;">Precio</th><th>Socio</th><th>Sede</th><th></th></tr>';
+      for (var i = 0; i < p.length; i++) {
+        var e = p[i];
+        h += '<tr><td>' + (e.fecha||"") + '</td><td>' + (e.codigo||"") + '</td><td style="text-align:right;">' + (e.cantidad||"") + '</td><td style="text-align:right;">$' + (e.precio||"0") + '</td><td>' + (e.socio||"") + '</td><td>' + (e.sede||"") + '</td><td><button class="btn" style="padding:4px 10px;font-size:12px;" onclick="marcarEntregado(' + e.fila + ', this)">✅ Marcar entregado</button></td></tr>';
+      }
+      h += '</table>';
+      caja.innerHTML = h;
+    })
+    .catch(function(){ caja.innerHTML = '<p style="color:#f87171;">No se pudo conectar a la API.</p>'; });
+}
+
+// Cargar pendientes al abrir
+cargarPendientes();
+
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 18/08/2026 12:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 18/08/2026 12:58</span>
 </div>
 </body></html>
