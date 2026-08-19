@@ -63,13 +63,13 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>19/08/2026 09:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>19/08/2026 10:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
-<div class="card"><h2>Ingresos Agosto</h2><div class="num green">$1.577.020</div></div>
-<div class="card"><h2>Gastos Agosto</h2><div class="num red">$300.000</div></div>
-<div class="card"><h2>Balance Agosto</h2><div class="num green">$1.277.020</div></div>
+<div class="card"><h2>Ingresos Agosto</h2><div class="num green">$129</div></div>
+<div class="card"><h2>Gastos Agosto</h2><div class="num red">$0</div></div>
+<div class="card"><h2>Balance Agosto</h2><div class="num green">$129</div></div>
 </div>
 <div class="tab-bar">
 <div class="tab active" onclick="switchTab('ver')">📊 Ver</div>
@@ -86,32 +86,35 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <table class="w"><tr><th>Fecha</th><th>Socio</th><th style="text-align:right;">Monto</th><th>Estado</th></tr>
 <tr><td>19/8</td><td>📄 aceite thc</td><td style="text-align:right;color:#4ade80;font-weight:600;">$3</td><td style="color:#888;font-size:12px;">⏳ Pendiente</td></tr>
 <tr><td>18/8</td><td>📄 Prueba</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10</td><td style="color:#888;font-size:12px;">⏳ Pendiente</td></tr>
-<tr><td>13/8</td><td>📄 jona guevara</td><td style="text-align:right;color:#4ade80;font-weight:600;">$126.000</td><td style="color:#888;font-size:12px;">⏳ Pendiente</td></tr>
+<tr style="opacity:.5;text-decoration:line-through;"><td>13/8</td><td>📄 jona guevara</td><td style="text-align:right;color:#4ade80;font-weight:600;">$126.000</td><td style="color:#888;font-size:12px;">✅ Pagado</td></tr>
 <tr><td>13/08</td><td>📄 la ronda central</td><td style="text-align:right;color:#4ade80;font-weight:600;">$452.700</td><td style="color:#888;font-size:12px;">Pendiente</td></tr>
 <tr><td>13/08</td><td>📄 la ronda central</td><td style="text-align:right;color:#4ade80;font-weight:600;">$251.500</td><td style="color:#888;font-size:12px;">Pendiente</td></tr>
 </table>
-<p style="font-size:15px;font-weight:700;margin-top:6px;">Total pendiente: <span style="color:#4ade80;">$3.472.096</span></p>
+<p style="font-size:15px;font-weight:700;margin-top:6px;">Total pendiente: <span style="color:#4ade80;">$2.745.096</span></p>
 <p style="font-size:12px;color:#555;margin-top:4px;">💡 Muestra los últimos 5 saldos cargados. Los marcados ✅ pagado no entran en el total.</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💰 Ingresos por origen</h2>
 <table class="w"><tr><th>Origen</th><th style="text-align:right;">Monto</th></tr>
-<tr><td>Ronda</td><td style="text-align:right;color:#4ade80;font-weight:600;">$1.205.000</td></tr>
-<tr><td>Efectivo</td><td style="text-align:right;color:#4ade80;font-weight:600;">$246.010</td></tr>
-<tr><td>Debe</td><td style="text-align:right;color:#4ade80;font-weight:600;">$126.000</td></tr>
-<tr><td>Pendiente</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10</td></tr>
+<tr><td>$210.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$32</td></tr>
+<tr><td>$140.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$30</td></tr>
+<tr><td>200 usd</td><td style="text-align:right;color:#4ade80;font-weight:600;">$20</td></tr>
+<tr><td>$70.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$11</td></tr>
+<tr><td>$60.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10</td></tr>
+<tr><td>$120.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$10</td></tr>
+<tr><td>$126.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$9</td></tr>
+<tr><td>$56.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$4</td></tr>
+<tr><td>$130.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$2</td></tr>
+<tr><td>$45.000,00</td><td style="text-align:right;color:#4ade80;font-weight:600;">$1</td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $1.577.020</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Total ingresos: $129</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💸 Gastos por quién</h2>
-<table class="w"><tr><th>Quién</th><th style="text-align:right;">Monto</th></tr>
-<tr><td>Juan</td><td style="text-align:right;color:#f87171;font-weight:600;">$300.000</td></tr>
-</table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Total gastos: $300.000</p>
+<p style="color:#666;">Sin gastos este mes</p>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
 <table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
 <tr><td>002</td><td>aceite q2</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
-<tr><td>001</td><td>Tropicana</td><td style="text-align:right;color:#4ade80;font-weight:600;">37</td></tr>
+<tr><td>001</td><td>tropicana</td><td style="text-align:right;color:#4ade80;font-weight:600;">37</td></tr>
 </table>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>⏳ Pedidos no entregados</h2>
@@ -119,23 +122,23 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>📦 Últimas entregas</h2>
 <table class="w"><tr><th>Fecha</th><th>Producto</th><th style="text-align:right;">Cant</th><th style="text-align:right;">Precio</th><th>Cobro</th><th>Socio</th><th>Sede</th></tr>
-<tr><td>18/08</td><td>1</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$10</td><td>pendiente</td><td>Prueba</td><td>Bariloche</td></tr>
-<tr><td>17/08</td><td>Tropicana</td><td style="text-align:right;">4</td><td style="text-align:right;font-weight:600;">$56.000</td><td>efectivo</td><td></td><td></td></tr>
-<tr><td>17/08</td><td>1</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$10</td><td>efectivo</td><td>Prueba</td><td>Bariloche</td></tr>
-<tr><td>15/08</td><td>Tropicana</td><td style="text-align:right;">15</td><td style="text-align:right;font-weight:600;">$210.000</td><td>ronda</td><td>nadia palm</td><td></td></tr>
-<tr><td>15/08</td><td>Tropicana</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$140.000</td><td>ronda</td><td>fabian zurich</td><td></td></tr>
-<tr><td>15/08</td><td>aceite thc</td><td style="text-align:right;">2</td><td style="text-align:right;font-weight:600;">$130.000</td><td>ronda</td><td>juan pablo kun</td><td></td></tr>
-<tr><td>15/08</td><td>Tropicana</td><td style="text-align:right;">9</td><td style="text-align:right;font-weight:600;">$126.000</td><td>debe</td><td>jona</td><td></td></tr>
-<tr><td>14/08</td><td>tropicana</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$140.000</td><td>ronda</td><td>cristian peña</td><td>Bariloche</td></tr>
-<tr><td>14/08</td><td>tropicana</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$60.000</td><td>ronda</td><td>ariana perez</td><td>Bariloche</td></tr>
-<tr><td>14/08</td><td>aceite q2</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$70.000</td><td>efectivo</td><td>jessica</td><td>Bariloche</td></tr>
-<tr><td>14/08</td><td>tremella adaptogenos</td><td style="text-align:right;">1</td><td style="text-align:right;font-weight:600;">$45.000</td><td>ronda</td><td>Nelson</td><td>Bariloche</td></tr>
-<tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$60.000</td><td>ronda</td><td>Nelson</td><td>Bariloche</td></tr>
-<tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">17</td><td style="text-align:right;font-weight:600;">$210.000</td><td>ronda</td><td>facundo marchetti</td><td>Bariloche</td></tr>
-<tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">10</td><td style="text-align:right;font-weight:600;">$140.000</td><td>ronda</td><td>eladio almonacid</td><td></td></tr>
-<tr><td>14/08</td><td>Tropicana</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">$70.000</td><td>ronda</td><td>flor grassi</td><td></td></tr>
+<tr><td>19/08</td><td>tropicana</td><td style="text-align:right;"></td><td style="text-align:right;font-weight:600;">$5</td><td>$70.000,00</td><td>si</td><td>prueba</td></tr>
+<tr><td>17/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$4</td><td>$56.000,00</td><td>entregado</td><td></td></tr>
+<tr><td>15/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$15</td><td>$210.000,00</td><td></td><td>nadia palm</td></tr>
+<tr><td>15/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$10</td><td>$140.000,00</td><td></td><td>fabian zurich</td></tr>
+<tr><td>15/08</td><td></td><td style="text-align:right;">aceite thc</td><td style="text-align:right;font-weight:600;">$2</td><td>$130.000,00</td><td></td><td>juan pablo kun</td></tr>
+<tr><td>15/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$9</td><td>$126.000,00</td><td></td><td>jona</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">tropicana</td><td style="text-align:right;font-weight:600;">$10</td><td>$140.000,00</td><td></td><td>cristian peña</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">tropicana</td><td style="text-align:right;font-weight:600;">$5</td><td>$60.000,00</td><td></td><td>ariana perez</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">aceite q2</td><td style="text-align:right;font-weight:600;">$1</td><td>$70.000,00</td><td></td><td>jessica</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">tremella adaptogenos</td><td style="text-align:right;font-weight:600;">$1</td><td>$45.000,00</td><td></td><td>Nelson</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$5</td><td>$60.000,00</td><td></td><td>Nelson</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$17</td><td>$210.000,00</td><td></td><td>facundo marchetti</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$10</td><td>$140.000,00</td><td></td><td>eladio almonacid</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$5</td><td>$70.000,00</td><td></td><td>flor grassi</td></tr>
+<tr><td>14/08</td><td></td><td style="text-align:right;">Tropicana</td><td style="text-align:right;font-weight:600;">$20</td><td>200 usd</td><td></td><td>fausto</td></tr>
 </table>
-<p style="font-size:12px;color:#555;margin-top:4px;">Mostrando las últimas 15 de 395 entregas.</p>
+<p style="font-size:12px;color:#555;margin-top:4px;">Mostrando las últimas 15 de 394 entregas.</p>
 </div>
 </div>
 <div id="tab-entrega" class="tab-content">
@@ -147,120 +150,9 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <datalist id="productos-list">
 <option value="001">
 <option value="002">
-<option value="1">
-<option value="10 bomba, 10 forbidden, 5 red, 10 inv wesley, 5 lemon cherry">
-<option value="4 lemon y 1 forbidden">
-<option value="5 bomba, 5 forbb y 2 inv. wesley">
-<option value="5 exotic fusion">
-<option value="5 exotic y 5 biker">
-<option value="5 invernadero wesley">
-<option value="5 lemon">
-<option value="AND">
-<option value="Aceite">
-<option value="Apple">
-<option value="Biker">
-<option value="Biker invernadero">
-<option value="CArtucho vapo">
-<option value="Capsulas">
-<option value="Cartucho vapo">
-<option value="Channel">
-<option value="Exterior">
-<option value="Federico Berconsky">
-<option value="GRL">
-<option value="HNK">
-<option value="Hindu">
-<option value="Indoor">
-<option value="Indoor y ocut dorr">
-<option value="Invernadeo">
-<option value="Invernadero">
-<option value="Invernadero Wesley">
-<option value="Isac de Campar">
-<option value="Mandarin y hindu">
-<option value="OUT">
-<option value="PRUEBA">
-<option value="Pago saldo">
-<option value="Promo Wesley Invernadero">
-<option value="Sanatnesia">
-<option value="Santanesia">
-<option value="TAN">
-<option value="TEST">
-<option value="TEST-COL">
-<option value="TRO">
-<option value="Tropicana">
-<option value="VPO">
-<option value="aceite">
-<option value="aceite q2">
-<option value="aceite thc">
-<option value="adaptogenos cordiceps">
-<option value="alvaro muestra">
-<option value="andres">
-<option value="apple">
-<option value="autos alvaro">
-<option value="bajas">
-<option value="bajas hindu">
-<option value="biker">
-<option value="bikers bike">
-<option value="bomba">
-<option value="canawine">
-<option value="cannawine">
-<option value="cargador vapo">
-<option value="cartucho vapo">
-<option value="cartucho y bateria">
-<option value="cartuchos">
-<option value="channel">
-<option value="cream mandarin">
-<option value="cream mandarine">
-<option value="cream mndarine">
-<option value="crema">
-<option value="entrega">
-<option value="entrega 5 invernadero">
-<option value="esterior">
-<option value="exoitic">
-<option value="exotic">
-<option value="exotic fusion">
-<option value="exotic, power, red, apple, bomba">
-<option value="exotic⁹">
-<option value="exterior">
-<option value="flores andres">
-<option value="forbiden">
-<option value="fuel mandarin">
-<option value="gomitas">
-<option value="gorilla">
-<option value="gorilla glue">
-<option value="gren mandarine">
-<option value="hindu">
-<option value="hindu kush">
-<option value="indoor">
-<option value="invernadero">
-<option value="invernadero wesley">
-<option value="inverno promo mundial">
-<option value="lemon cherry">
-<option value="limón cherry">
-<option value="limón churra mint">
-<option value="mandarin">
-<option value="marino ponce">
-<option value="mimosa">
-<option value="outdoor">
-<option value="power">
-<option value="power s1">
-<option value="promo invernadero">
-<option value="promo invernadero wesley">
-<option value="promo invernadero y 1 aceite">
-<option value="promo mundial">
-<option value="promo santa esia">
-<option value="promo wesley">
-<option value="red steam">
-<option value="red stem">
-<option value="red stems">
-<option value="red stems 30, apple y bomba 5">
-<option value="reprocann">
-<option value="saldo">
-<option value="santanesia">
-<option value="tremella adaptogenos">
 <option value="tropicana">
-<option value="vream mandarine">
-<option value="Tropicana">
 <option value="aceite q2">
+<option value="tropicana">
 </datalist>
 <input type="text" id="e-cantidad" placeholder="Cantidad" inputmode="numeric">
 <input type="text" id="e-precio" placeholder="Precio total $ (ej: 45000)" inputmode="numeric">
@@ -268,202 +160,8 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="form-row">
 <input type="text" id="e-socio" placeholder="Socio" list="socios-list">
 <datalist id="socios-list">
-<option value="Ale papa ivan">
-<option value="Andy">
-<option value="Bautista">
-<option value="Brenda Mamani">
-<option value="DAvid">
-<option value="David">
-<option value="Eladio">
-<option value="Enzo">
-<option value="FEde boga">
-<option value="Fabian">
-<option value="Fausto">
-<option value="Fede boga">
-<option value="Flor grasi">
-<option value="Flor grassi">
-<option value="Florencia socia">
-<option value="Gonzalo Paris">
-<option value="Grace">
-<option value="Horacio Suárez">
-<option value="Igancio Basti">
-<option value="Ignacio basti">
-<option value="Isaac">
-<option value="Javi">
-<option value="Juan Ignacio Ortiz">
-<option value="Juan Manuel Kokollo">
-<option value="Juan Pérez">
-<option value="Juan Test">
-<option value="Juan medialunas">
-<option value="LAURA">
-<option value="Lau">
-<option value="Lau Franze">
-<option value="Lau Rossi">
-<option value="Lucas pago 20000">
-<option value="Lucho fred">
-<option value="Lucia">
-<option value="Luciano fred">
-<option value="Maria Florencia Evangelista">
-<option value="Marino ponce">
-<option value="Mau superpizza">
-<option value="Mau superpuzza">
-<option value="Mauri">
-<option value="Mauri super pizza">
-<option value="Nelson">
-<option value="Nico Medialunas">
-<option value="Nico Noceti">
-<option value="Nico noceti">
-<option value="Nicolas liñan">
-<option value="Nicole">
-<option value="Pablo Telias">
-<option value="Pablo galban">
-<option value="Pablo telias">
-<option value="Pale">
-<option value="Parma abogado">
-<option value="Patricia aguirre">
-<option value="Pri">
-<option value="Prueba">
-<option value="Rebe">
-<option value="SAyo">
-<option value="Santi Cacheda">
-<option value="Test Saldo">
-<option value="agnes">
-<option value="agustin">
-<option value="ale">
-<option value="ale solari">
-<option value="alejandro solari">
-<option value="amigo juan bajas">
-<option value="andrea amiga de enzo">
-<option value="andy sakal">
-<option value="ariana perez">
-<option value="ariel">
-<option value="ariel socio villa">
-<option value="brenda">
-<option value="brenda mamani">
-<option value="cannpat">
-<option value="canpat">
-<option value="caro san martin">
-<option value="cecilia">
-<option value="coco">
-<option value="coco colombo">
-<option value="coco cooombo">
-<option value="coco tulino">
-<option value="cristian conesa">
-<option value="cristian conessa">
-<option value="cristian peña">
-<option value="david">
-<option value="david compa anita">
-<option value="el chalten">
-<option value="eladio almonacid">
-<option value="enzo">
-<option value="esteban">
-<option value="esteban amigo vir">
-<option value="fabian">
-<option value="fabian zurich">
-<option value="fabio bareiro">
-<option value="facundo marchetti">
-<option value="facundo pla señorans">
-<option value="fausto">
-<option value="fede">
-<option value="federico">
-<option value="federico berkonsky">
-<option value="federico berkosky">
-<option value="fer tarnagol">
-<option value="flor grasi">
-<option value="flor grassi">
-<option value="flor paciente maqui">
-<option value="florencia">
-<option value="florencia Socia">
-<option value="florencia evangelista">
-<option value="florencia socia">
-<option value="frances Gerzovich">
-<option value="francesca gersovich">
-<option value="francesca gerzovicj">
-<option value="francisco angeletti">
-<option value="hernan">
-<option value="hernancito">
-<option value="horacio">
-<option value="horacio suarez">
-<option value="hostel">
-<option value="ignacio">
-<option value="ignacio basti">
-<option value="isaac cannpat">
-<option value="javo delfino">
-<option value="jessica">
-<option value="jona">
-<option value="jona plomero">
-<option value="juan Pablo kuhn">
-<option value="juan et">
-<option value="juan gabriel bs as">
-<option value="juan ignacio ortiz">
-<option value="juan jose requena">
-<option value="juan medialunas">
-<option value="juan ortiz">
-<option value="juan pablo kun">
-<option value="juan papi">
-<option value="lau">
-<option value="lau franze">
-<option value="lau frqnze">
-<option value="lau rossi">
-<option value="laura rossi">
-<option value="laura vieytes">
-<option value="lean">
-<option value="leandro anima">
-<option value="leandro jorge">
-<option value="lucia">
-<option value="marcelo albornoz">
-<option value="marian curiel">
-<option value="marino">
-<option value="mau">
-<option value="mauri super">
-<option value="melanie moreira">
-<option value="nadia">
-<option value="nadia palm">
-<option value="nelson ceballos">
-<option value="nico noceti">
-<option value="nico nocetti">
-<option value="nico rosetti">
-<option value="nicolas">
-<option value="nicolas liñan">
-<option value="nicole">
-<option value="nicole dalcecio">
-<option value="nicole dalceggio">
-<option value="nicole daleccio">
-<option value="nicole dalecio">
-<option value="nicole delacio">
-<option value="nicole delcecio">
-<option value="nivole delacio">
-<option value="pablo benavidez">
-<option value="pablo galvan">
-<option value="pablo telias">
-<option value="pablo tellias">
-<option value="pago">
-<option value="panlo telias">
-<option value="papi amigo juan">
-<option value="pato ex novio de vir">
-<option value="patrcia">
-<option value="patricia">
-<option value="patricio">
-<option value="pricila bohmer">
-<option value="rebe artista">
-<option value="rocio">
-<option value="rocio osorio">
-<option value="rocio ossorio">
-<option value="santi">
-<option value="santiago primo maky">
-<option value="sayem">
-<option value="sebastian">
-<option value="sebastian curamil">
-<option value="sebastian curanil">
-<option value="silestre">
-<option value="silvana diaz">
-<option value="silvestre">
-<option value="tomas gonzalez">
-<option value="tomy gilbert">
-<option value="vicky bs as">
-<option value="vir">
-<option value="yair">
-<option value="yamil peralta">
+<option value="entregado">
+<option value="si">
 </datalist>
 <select id="e-cobro"><option value="">Cobro</option><option value="efectivo">Efectivo</option><option value="ronda">Ronda</option><option value="juan">Juan</option><option value="achu">Achu</option><option value="pendiente">Pendiente (suma saldo)</option></select>
 <input type="text" id="e-sede" placeholder="Sede" value="Bariloche">
@@ -517,8 +215,8 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="form-row">
 <input type="text" id="st-producto" placeholder="Nombre del producto (o código)" list="nombres-list" style="flex:1;">
 <datalist id="nombres-list">
-<option value="Tropicana">
 <option value="aceite q2">
+<option value="tropicana">
 </datalist>
 <select id="st-operacion" style="flex:0 0 130px;"><option value="sumar">➕ Sumar</option><option value="restar">➖ Restar</option><option value="set">✏️ Poner exacto</option></select>
 <input type="text" id="st-cantidad" placeholder="Cantidad" inputmode="numeric" style="flex:0 0 110px;">
@@ -534,7 +232,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div id="toast" class="toast"></div>
 <script>
-var PRODUCTOS = [["001", "Tropicana"], ["002", "aceite q2"]];
+var PRODUCTOS = [["001", "tropicana"], ["002", "aceite q2"]];
 
 function getApiUrl() {
   // Usa tunnel si disponible, sino cae a IP local
@@ -767,6 +465,6 @@ cargarPendientes();
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 19/08/2026 09:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 19/08/2026 10:00</span>
 </div>
 </body></html>
