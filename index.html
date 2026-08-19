@@ -63,7 +63,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </script>
 <div class="header">
 <h1>💰 Dashboard Contable &middot; La Ronda</h1>
-<div style="text-align:right;"><span>19/08/2026 10:30</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
+<div style="text-align:right;"><span>19/08/2026 11:00</span><br><span class="badge badge-amber">auto-refresh 5 min</span></div>
 </div>
 <div class="grid">
 <div class="card"><h2>Saldo Actual</h2><div class="num green">$0</div></div>
@@ -80,7 +80,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div id="tab-ver" class="tab-content active">
 <div class="card" style="margin-bottom:16px;"><h2>Alertas</h2>
-<div class="alert adanger">🔴 2 productos sin stock</div>
+<div class="alert adanger">🔴 3 productos sin stock</div>
 </div>
 <div class="card" style="margin-bottom:16px;"><h2>💳 Saldos recientes</h2>
 <table class="w"><tr><th>Fecha</th><th>Socio</th><th style="text-align:right;">Monto</th><th>Estado</th></tr>
@@ -115,6 +115,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <div class="card" style="margin-bottom:16px;"><h2>Stock actual</h2>
 <table class="w"><tr><th>Cod</th><th>Producto</th><th style="text-align:right;">Stock</th></tr>
 <tr><td>001</td><td>tropicana</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
+<tr><td>3</td><td>kings tart</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
 <tr><td>002</td><td>aceite q2</td><td style="text-align:right;color:#f87171;font-weight:600;">0</td></tr>
 </table>
 </div>
@@ -151,8 +152,10 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <datalist id="productos-list">
 <option value="001">
 <option value="002">
+<option value="3">
 <option value="tropicana">
 <option value="aceite q2">
+<option value="kings tart">
 <option value="tropicana">
 </datalist>
 <input type="text" id="e-cantidad" placeholder="Cantidad" inputmode="numeric">
@@ -217,6 +220,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 <input type="text" id="st-producto" placeholder="Nombre del producto (o código)" list="nombres-list" style="flex:1;">
 <datalist id="nombres-list">
 <option value="aceite q2">
+<option value="kings tart">
 <option value="tropicana">
 </datalist>
 <select id="st-operacion" style="flex:0 0 130px;"><option value="sumar">➕ Sumar</option><option value="restar">➖ Restar</option><option value="set">✏️ Poner exacto</option></select>
@@ -233,7 +237,7 @@ table.w td { padding:5px 3px; border-bottom:1px solid #222; }
 </div>
 <div id="toast" class="toast"></div>
 <script>
-var PRODUCTOS = [["001", "tropicana"], ["002", "aceite q2"]];
+var PRODUCTOS = [["001", "tropicana"], ["3", "kings tart"], ["002", "aceite q2"]];
 
 function getApiUrl() {
   // Usa tunnel si disponible, sino cae a IP local
@@ -466,6 +470,6 @@ cargarPendientes();
 </script>
 <div class="footer">
 Dashboard Contable &middot; La Ronda Bariloche
-<br><span style="color:#444;font-size:11px;">Actualizado: 19/08/2026 10:30</span>
+<br><span style="color:#444;font-size:11px;">Actualizado: 19/08/2026 11:00</span>
 </div>
 </body></html>
